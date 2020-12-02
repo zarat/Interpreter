@@ -267,5 +267,3 @@ Token Lexer::getNextToken() {
 
 }
 ```
-
-Create a [parser](Parser.md)
