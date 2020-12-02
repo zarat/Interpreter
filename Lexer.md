@@ -50,8 +50,9 @@ void Lexer::skip_whitespaces() {
 }
 
 void Lexer::skip_directives() {
-	advance_pos();
-	while( !(current_char == '#' )) advance_pos();
+    advance_pos();
+    while( !(current_char == '#' )) 
+        Zuadvance_pos();
     advance_pos();
 }
 
