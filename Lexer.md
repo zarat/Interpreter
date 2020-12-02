@@ -46,22 +46,23 @@ class Lexer {
 
 void Lexer::skip_whitespaces() {
     while(text[pos] == ' ' or text[pos] == '\t' or text[pos] == '\n') 
-		advance_pos();
+	advance_pos();
 }
 
 void Lexer::skip_directives() {
     advance_pos();
     while( !(current_char == '#' )) 
-        Zuadvance_pos();
+        advance_pos();
     advance_pos();
 }
 
 void Lexer::skip_comments() {
-	advance_pos(); 
-	advance_pos();
-	while( !(current_char == '*' && peek() == '/') ) 
-		advance_pos();
-	advance_pos(); advance_pos();
+    advance_pos(); 
+    advance_pos();
+    while( !(current_char == '*' && peek() == '/') ) 
+        advance_pos();
+    advance_pos();
+    advance_pos();
 }
 
 void Lexer::skip_inlinecomments() {
