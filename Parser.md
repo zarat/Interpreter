@@ -19,35 +19,35 @@ class Parser {
 
         Parser() {};
 
-    Parser(Lexer _lexer) {
+        Parser(Lexer _lexer) {
             lexer = _lexer;
             current_token = lexer.getNextToken();
         }
 
         ~Parser() {};
 
-    void error(std::string str) {
-        std::cout << "parser: " << str << "\n";
-        std::exit(0);
-    }
+        void error(std::string str) {
+            std::cout << "parser: " << str << "\n";
+            std::exit(0);
+        }
 
-    ASTNode parse() {
-        ASTNode node = statement_list();
-        return node;
-    }
+        ASTNode parse() {
+            ASTNode node = statement_list();
+            return node;
+        }
 
-    int consumed = 0; // Todo
-    void consume(std::string token_type);
+        int consumed = 0; // Todo
+        void consume(std::string token_type);
 
-    ASTNode statement_list();
-    ASTNode statement();
-    ASTNode declare_statement();
-    ASTNode assignment_statement();
-    ASTNode variable();
-    ASTNode factor();
-    ASTNode term();
-    ASTNode expression();
-    ASTNode condition();
+        ASTNode statement_list();
+        ASTNode statement();
+        ASTNode declare_statement();
+        ASTNode assignment_statement();
+        ASTNode variable();
+        ASTNode factor();
+        ASTNode term();
+        ASTNode expression();
+        ASTNode condition();
 
 };
 
