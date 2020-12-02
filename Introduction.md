@@ -49,15 +49,15 @@ class Token {
               
     public:
     
-    	Token() {
-    		type = "";
-    		value = "";
-    	} 
+        Token() {
+            type = "";
+            value = "";
+        } 
            
-    	Token(std::string _type, std::string _value) {
-    		type = _type;
-    		value = _value;
-    	}  
+        Token(std::string _type, std::string _value) {
+            type = _type;
+            value = _value;
+        }  
            
         ~Token(){};	
         
@@ -89,20 +89,20 @@ class ASTNode {
         ASTNode() {};                        
     	
         ASTNode(Token _token) {
-    		token = _token;
-    	}         
+            token = _token;
+        }         
         
         ~ASTNode() {}; 
     	
         void make_child(ASTNode _node) {
-    		ASTNode *temp = new ASTNode(_node._token());
-    		temp->child = _node.child;
-    		child.push_back(temp);
-    	}            
+            ASTNode *temp = new ASTNode(_node._token());
+            temp->child = _node.child;
+            child.push_back(temp);
+        }            
     	
         Token _token() {
-    		return token;
-    	}     
+            return token;
+        }     
 
         void show(int level) {                
 
