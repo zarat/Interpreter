@@ -1,7 +1,7 @@
 First we define which symbols we need to represent our tokens.
 
 <pre>
-// terminals
+// non terminals
 #define EMPTY "EMPTY"
 #define SEMI "SEMI" 
 #define COMMA "COMMA" 
@@ -31,7 +31,7 @@ First we define which symbols we need to represent our tokens.
 #define AND "AND"
 #define OR "OR"
 
-// non terminals
+// terminals
 #define IDENTIFIER "IDENTIFIER"
 #define VARIABLE "VARIABLE"
 #define INTEGER "INTEGER"
