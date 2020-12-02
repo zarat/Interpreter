@@ -6,8 +6,8 @@ class Lexer {
     private:
 
         std::string text;
-    char current_char;
-    int pos;
+        char current_char;
+        int pos;
 
     public:
 
@@ -17,7 +17,7 @@ class Lexer {
             current_char = EOF;
         }
 
-    Lexer(std::string _text) {
+        Lexer(std::string _text) {
             text = _text;
             pos = 0;
             current_char = text[pos];
@@ -25,27 +25,25 @@ class Lexer {
 
         ~Lexer() {};
 
-    void error() {
-        std::cout << "lexer: unknown '" << text[pos] << "' at position " << pos << "\n";
-        std::exit(0);
-    }
+        void error() {
+            std::cout << "lexer: unknown '" << text[pos] << "' at position " << pos << "\n";
+            std::exit(0);
+        }
 
-    void skip_whitespaces();
-    void skip_comments();
-    void advance_pos();
-    void reduce_pos();
-    char peek();
-    char peek(int n);
-    Token getNextToken();
-    Token identifier();
-    std::string number();
+        void skip_whitespaces();
+        void skip_comments();
+        void advance_pos();
+        void reduce_pos();
+        char peek();
+        char peek(int n);
+        Token getNextToken();
+        Token identifier();
+        std::string number();
 
 };
 
 void Lexer::skip_whitespaces() {
-    while (text[pos] == ' '
-        or text[pos] == '\t'
-        or text[pos] == '\n')
+    while (text[pos] == ' ' || text[pos] == '\t' || text[pos] == '\n')
         advance_pos();
 }
 
