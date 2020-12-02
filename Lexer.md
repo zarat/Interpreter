@@ -115,12 +115,12 @@ std::string Lexer::number() {
 Token Lexer::identifier() {   
 
     std::string result;
-    Token token;        
-    int i = 0;                                             /*               A                    Z                       a                    z */
-    while( (current_char >= 48 && current_char <= 57) || (current_char >= 65 && current_char <=90) || (current_char >= 97 && current_char <=122) ) {        
-        result.push_back(current_char); advance_pos(); i++;
+    Token token;                                                  
+    while( (current_char >= 48 && current_char <= 57) || (current_char >= 65 && current_char <= 90) || (current_char >= 97 && current_char <= 122) ) {        
+        result.push_back(current_char); 
+	advance_pos();
     }
-    token = Token(VARIABLE, result); // a variable         
+    token = Token(VARIABLE, result);         
     return token;
 
 }
