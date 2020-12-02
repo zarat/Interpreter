@@ -106,7 +106,7 @@ class ASTNode {
 
         void show(int level) {                
 
-            if(level<2 && level != 0) 
+            if(level < 2 && level != 0) 
                 std::cout << std::string(level*2, ' ') << "Token('" << token._type() << "', '" << token._value() << "')\n";
 
             else 
