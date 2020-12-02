@@ -7,7 +7,7 @@ name = "Jango";
 
 We start always with a statement list because almost everything is a list of statements.
 
-<pre>
+``` C++
 class Parser {
 
     private:
@@ -234,4 +234,4 @@ ASTNode Parser::condition() {
     return node;
 
 }
-</pre>
+```
