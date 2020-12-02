@@ -45,60 +45,75 @@ class Lexer {
 };
 
 void Lexer::skip_whitespaces() {
+
     while(text[pos] == ' ' or text[pos] == '\t' or text[pos] == '\n') 
 	advance_pos();
+
 }
 
 void Lexer::skip_directives() {
+
     advance_pos();
     while( !(current_char == '#' )) 
         advance_pos();
     advance_pos();
+
 }
 
 void Lexer::skip_comments() {
+
     advance_pos(); 
     advance_pos();
     while( !(current_char == '*' && peek() == '/') ) 
         advance_pos();
     advance_pos();
     advance_pos();
+
 }
 
 void Lexer::skip_inlinecomments() {
+
     advance_pos(); 
     advance_pos();
     while( current_char != '/' && peek() != '/' ) { 
         advance_pos();
     }
     advance_pos();
+
 }
 
 void Lexer::advance_pos() {
+
     pos++;
     if(pos >= text.length()) 
         current_char = EOF;
     else 
         current_char = text[pos];
+
 }
 
 void Lexer::reduce_pos() {
+
     pos--;
     if(pos <= 0) 
         current_char = EOF;
     else 
         current_char = text[pos];
+
 }
 
 std::string Lexer::number() {
+
     std::string str;    
     while(current_char >= 48 && current_char <= 57) { 
         str.push_back(current_char); advance_pos(); 
     } 
     return str;
+
 }
 
 Token Lexer::identifier() {   
+
     std::string result;
     Token token;        
     int i = 0;                                             /*               A                    Z                       a                    z */
@@ -106,7 +121,8 @@ Token Lexer::identifier() {
         result.push_back(current_char); advance_pos(); i++;
     }
     token = Token(VARIABLE, result); // a variable         
-    return token; 
+    return token;
+
 }
 
 char Lexer::peek() {
@@ -130,15 +146,15 @@ char Lexer::peek(int n) {
 Token Lexer::getNextToken() {
 
     std::string temp_str;
-	skip_whitespaces();
+    skip_whitespaces();
         
-	while(current_char == '#') {
-		skip_directives();
-	}
+    while(current_char == '#') {
+        skip_directives();
+    }
 
-	while(current_char == '/' && peek() == '*') {
-		skip_comments();
-	}
+    while(current_char == '/' && peek() == '*') {
+        skip_comments();
+    }
          
     if( (current_char >= 65 && current_char <=90) || (current_char >= 97 && current_char <=122) ) {
         return identifier(); 
