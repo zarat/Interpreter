@@ -110,10 +110,6 @@ Token Lexer::getNextToken() {
     std::string temp_str;
     skip_whitespaces();
 
-    while (current_char == '#') {
-        skip_directives();
-    }
-
     while (current_char == '/' && peek() == '*') {
         skip_comments();
     }
