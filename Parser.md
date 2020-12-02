@@ -53,42 +53,32 @@ class Parser {
 };
 
 void Parser::consume(std::string token_type) {
-    if(current_token._type() == token_type) current_token = lexer.getNextToken();
-    else error("[parser::consume] unexpected '" + current_token._value() + "', expected '" + token_type + "'\n");
+    if(current_token._type() == token_type) 
+    	current_token = lexer.getNextToken();
+    else 
+    	error("[parser::consume] unexpected '" + current_token._value() + "', expected '" + token_type + "'\n");
     consumed++;
 }
 
 ASTNode Parser::statement_list() {
-
 	ASTNode node(Token(CODE_BLOCK, "CODE_BLOCK"));
-
 	while (current_token._type() != "EOF" and current_token._type() != RBRACKET) {
-
 		node.make_child(statement());
-
 	}
-
 	return node;
-
 }
 
 ASTNode Parser::statement() {
-
 	ASTNode node;
-
 	if (current_token._type() == VARIABLE) {
 		node = assignment_statement(); 
 	}
-
 	else
-		error("[parser::statement] unknown Token '" + current_token._type() + "'");
-	
+		error("[parser::statement] unknown Token '" + current_token._type() + "'");	
 	return node;
-
 }
 
 ASTNode Parser::assignment_statement() {
-
 	ASTNode left = variable();
 	consume(ASSIGN);
 	ASTNode right;
@@ -98,26 +88,23 @@ ASTNode Parser::assignment_statement() {
 	node.make_child(right);
 	if(current_token._type() == SEMI)
 		consume(SEMI);
-	return node;
-    
+	return node;   
 }
 
 ASTNode Parser::variable() {
-
 	ASTNode node(current_token);
 	consume(VARIABLE);
 	return node;
-    
 }
 
 ASTNode Parser::factor() {
-    
+	
 	if(current_token._type() == PLUS) {
         ASTNode node(current_token);
         consume(PLUS);
         node.make_child(factor());
-        return node;
-    } 
+		return node;
+	} 
 	
 	else if(current_token._type() == MINUS) {
         ASTNode node(current_token);
