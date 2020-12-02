@@ -1,6 +1,6 @@
 The lexer now creates Tokens out of the source code. We have functions to parse all the terminals (like , ; ( [ {), defined in step prerequisites and functions to fetch all non terminals (numbers and strings). We walk thru the source code character for character and when we recognize it we build a token representing it.
 
-<pre>
+```C++
 class Lexer {
 
     private:
@@ -266,6 +266,6 @@ Token Lexer::getNextToken() {
     error();
 
 }
-</pre>
+```
 
 Create a [parser](Parser.md)
