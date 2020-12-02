@@ -119,5 +119,3 @@ class ASTNode {
 
 };
 ```
-
-Create a [lexer](Lexer.md)
