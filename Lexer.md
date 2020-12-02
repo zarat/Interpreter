@@ -167,12 +167,12 @@ Token Lexer::getNextToken() {
     
     if(current_char == '[') { 
         advance_pos();
-        return Token(LBRACE, "[");
+        return Token(LBRACKET, "[");
     }
     
     if(current_char == ']') { 
         advance_pos();
-        return Token(RBRACE, "]");
+        return Token(RBRACKET, "]");
     }
     
     if(current_char == '^') { 
@@ -295,12 +295,12 @@ Token Lexer::getNextToken() {
     
     if(current_char == '{') {
         advance_pos();
-        return Token(LBRACKET, "{");
+        return Token(LBRACE, "{");
     }
     
     if(current_char == '}') {
         advance_pos();
-        return Token(RBRACKET, "}");
+        return Token(RBRACE, "}");
     }
         
     error();
