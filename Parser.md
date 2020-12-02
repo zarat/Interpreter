@@ -24,19 +24,24 @@ class Parser {
     public:
 
         Parser(){};       
+	
         Parser(Lexer _lexer) {
             lexer = _lexer;
             current_token = lexer.getNextToken();
         }     
-        ~Parser(){};                    
+	
+        ~Parser(){};   
+	
         void error(std::string str) {
             std::cout<<"parser: "<< str <<"\n";
             std::exit(0);
         }    
+	
         ASTNode parse() {
             ASTNode node = statement_list();
             return node;
         }     
+	
         int consumed = 0; // Todo
         void consume(std::string token_type);
 
@@ -53,11 +58,11 @@ class Parser {
 };
 
 void Parser::consume(std::string token_type) {
-    if(current_token._type() == token_type) 
-    	current_token = lexer.getNextToken();
-    else 
-    	error("[parser::consume] unexpected '" + current_token._value() + "', expected '" + token_type + "'\n");
-    consumed++;
+	if(current_token._type() == token_type) 
+		current_token = lexer.getNextToken();
+	else 
+		error("[parser::consume] unexpected '" + current_token._value() + "', expected '" + token_type + "'\n");
+	consumed++;
 }
 
 ASTNode Parser::statement_list() {
