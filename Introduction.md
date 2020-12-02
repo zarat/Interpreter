@@ -1,6 +1,6 @@
 First we define which symbols we need to represent our tokens.
 
-<pre>
+``` C++
 // non terminals
 #define EMPTY "EMPTY"
 #define SEMI "SEMI" 
@@ -35,11 +35,11 @@ First we define which symbols we need to represent our tokens.
 #define IDENTIFIER "IDENTIFIER"
 #define VARIABLE "VARIABLE"
 #define INTEGER "INTEGER"
-</pre>
+```
 
 Then we define the class Token.
 
-<pre>
+``` C++
 class Token {
 
     private:
@@ -74,11 +74,11 @@ class Token {
         }  
           
 };
-</pre>
+```
 
 And also a class ASTNode.
 
-<pre>
+```
 class ASTNode {
     
     public:        
@@ -118,6 +118,6 @@ class ASTNode {
         }
 
 };
-</pre>
+```
 
 Create a [lexer](Lexer.md)
