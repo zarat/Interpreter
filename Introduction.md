@@ -78,7 +78,7 @@ class Token {
 
 And also a class ASTNode.
 
-```
+``` C++
 class ASTNode {
     
     public:        
