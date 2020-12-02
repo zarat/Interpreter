@@ -13,7 +13,7 @@ class Parser {
     private:
 
         Lexer lexer;
-    Token current_token;
+        Token current_token;
 
     public:
 
