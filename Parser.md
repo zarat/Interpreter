@@ -3,12 +3,6 @@ The parser takes the tokens from the lexer one after each other and match it aga
 <pre>
 // identifier equals string semicolon
 name = "Jango";
-
-// function identifier lparen rparen lbrace statement_list rbrace
-function add() {  
-    a = 1; 
-    b = 2; 
-}
 </pre>
 
 We start always with a statement list because almost everything is a list of statements.
