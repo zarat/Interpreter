@@ -66,54 +66,47 @@ void Lexer::skip_comments() {
 }
 
 void Lexer::skip_inlinecomments() {
-	advance_pos(); 
+    advance_pos(); 
     advance_pos();
-	while( current_char != '/' && peek() != '/' ) { 
+    while( current_char != '/' && peek() != '/' ) { 
         advance_pos();
     }
-	advance_pos();
+    advance_pos();
 }
 
 void Lexer::advance_pos() {
     pos++;
     if(pos >= text.length()) 
-		current_char = EOF;
+        current_char = EOF;
     else 
-		current_char = text[pos];
+        current_char = text[pos];
 }
 
 void Lexer::reduce_pos() {
     pos--;
     if(pos <= 0) 
-		current_char = EOF;
+        current_char = EOF;
     else 
-		current_char = text[pos];
+        current_char = text[pos];
 }
 
 std::string Lexer::number() {
     std::string str;    
-    
     while(current_char >= 48 && current_char <= 57) { 
-            str.push_back(current_char); advance_pos(); 
+        str.push_back(current_char); advance_pos(); 
     } 
-    
     return str;
 }
 
 Token Lexer::identifier() {   
-    
     std::string result;
     Token token;        
     int i = 0;                                             /*               A                    Z                       a                    z */
-    
     while( (current_char >= 48 && current_char <= 57) || (current_char >= 65 && current_char <=90) || (current_char >= 97 && current_char <=122) ) {        
         result.push_back(current_char); advance_pos(); i++;
     }
-         
     token = Token(VARIABLE, result); // a variable         
-
     return token; 
-       
 }
 
 char Lexer::peek() {
