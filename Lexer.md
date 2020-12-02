@@ -45,75 +45,60 @@ class Lexer {
 };
 
 void Lexer::skip_whitespaces() {
-
     while(text[pos] == ' ' or text[pos] == '\t' or text[pos] == '\n') 
 	advance_pos();
-
 }
 
 void Lexer::skip_directives() {
-
     advance_pos();
     while( !(current_char == '#' )) 
         advance_pos();
     advance_pos();
-
 }
 
 void Lexer::skip_comments() {
-
     advance_pos(); 
     advance_pos();
     while( !(current_char == '*' && peek() == '/') ) 
         advance_pos();
     advance_pos();
     advance_pos();
-
 }
 
 void Lexer::skip_inlinecomments() {
-
     advance_pos(); 
     advance_pos();
     while( current_char != '/' && peek() != '/' ) { 
         advance_pos();
     }
     advance_pos();
-
 }
 
 void Lexer::advance_pos() {
-
     pos++;
     if(pos >= text.length()) 
         current_char = EOF;
     else 
         current_char = text[pos];
-
 }
 
 void Lexer::reduce_pos() {
-
     pos--;
     if(pos <= 0) 
         current_char = EOF;
     else 
         current_char = text[pos];
-
 }
 
 std::string Lexer::number() {
-
     std::string str;    
     while(current_char >= 48 && current_char <= 57) { 
         str.push_back(current_char); advance_pos(); 
     } 
     return str;
-
 }
 
 Token Lexer::identifier() {   
-
     std::string result;
     Token token;                                                  
     while( (current_char >= 48 && current_char <= 57) || (current_char >= 65 && current_char <= 90) || (current_char >= 97 && current_char <= 122) ) {        
@@ -122,29 +107,23 @@ Token Lexer::identifier() {
     }
     token = Token(VARIABLE, result);         
     return token;
-
 }
 
 char Lexer::peek() {
-    
     if(pos+1 >= text.length()) 
         return EOF;        
     else 
-        return text[pos+1]; 
-               
+        return text[pos+1];           
 }
 
 char Lexer::peek(int n) {
-
     if(pos + n >= text.length()) 
         return EOF;       
     else 
-        return text[pos+n];  
-              
+        return text[pos+n];          
 }
 
 Token Lexer::getNextToken() {
-
     std::string temp_str;
     skip_whitespaces();
         
