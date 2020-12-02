@@ -31,9 +31,7 @@ class Lexer {
         }
         
         void skip_whitespaces();        
-        void skip_comments();        
-        void skip_inlinecomments();
-        void skip_directives();        
+        void skip_comments();          
         void advance_pos();
         void reduce_pos();             
         char peek(); 
@@ -49,28 +47,12 @@ void Lexer::skip_whitespaces() {
 	advance_pos();
 }
 
-void Lexer::skip_directives() {
-    advance_pos();
-    while( !(current_char == '#' )) 
-        advance_pos();
-    advance_pos();
-}
-
 void Lexer::skip_comments() {
     advance_pos(); 
     advance_pos();
     while( !(current_char == '*' && peek() == '/') ) 
         advance_pos();
     advance_pos();
-    advance_pos();
-}
-
-void Lexer::skip_inlinecomments() {
-    advance_pos(); 
-    advance_pos();
-    while( current_char != '/' && peek() != '/' ) { 
-        advance_pos();
-    }
     advance_pos();
 }
 
