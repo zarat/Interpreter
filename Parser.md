@@ -229,7 +229,7 @@ ASTNode Parser::condition() {
 }
 ```
 
-The parser has now produced a rooted tree.
+The parser has now produced a rooted tree to iteratoe over.
 
 ```
 Token('CODE_BLOCK', 'CODE_BLOCK')
