@@ -433,8 +433,7 @@ void Parser::consume(std::string token_type) {
 
 ASTNode Parser::statement_list() {
     ASTNode node(Token(CODE_BLOCK, "CODE_BLOCK"));
-    while (current_token._type() != "EOF"
-        and current_token._type() != RBRACKET) {
+    while (current_token._type() != "EOF" && current_token._type() != RBRACE) {
         node.make_child(statement());
     }
     return node;
