@@ -1,4 +1,4 @@
-The interpreter finally traverses the AST tree and evaluates branch after branch.
+The interpreter finally traverses the rooter, structured AST tree and evaluates each node. This process is the most important. It is where stored variables has to get managed and more.. This chapter will definitely continue.
 
 ```C++
 class Interpreter {
