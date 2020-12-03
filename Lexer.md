@@ -1,4 +1,4 @@
-The lexer now creates Tokens out of the source code. We have functions to parse all the terminals (like , ; ( [ {), defined in step prerequisites and functions to fetch all non terminals (numbers and strings). We walk thru the source code character for character and when we recognize it we build a token representing it.
+A Lexer (or scanner) takes the sourcecode and chunks it into a series of known words. Each of these words is called a token. Some tokens are single characters (parenthesis or mathematical signs), others may be several characters long (numbers and strings).
 
 ```C++
 class Lexer {
