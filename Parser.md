@@ -1,4 +1,4 @@
-The next step is parsing. This is where our syntax gets a grammar—the ability to compose larger expressions and statements out of smaller parts. A parser takes the flat list of tokens and builds a tree structure that mirrors the nested nature of the grammar.
+The parser gives the syntax a grammar. The ability to compose larger expressions and statements out of smaller parts. A parser takes the flat list of tokens and builds a tree structure that mirrors the nested nature of the grammar.
 
 ``` C++
 class Parser {
