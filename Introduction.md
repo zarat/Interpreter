@@ -1,4 +1,6 @@
-First we define which symbols we need to represent our tokens.
+## Token
+
+A lexical token or simply token is a string with an assigned and thus identified meaning. It is structured as a pair consisting of a token name and an optional token value. 
 
 ``` C++
 // non terminals
@@ -35,11 +37,7 @@ First we define which symbols we need to represent our tokens.
 #define IDENTIFIER "IDENTIFIER"
 #define VARIABLE "VARIABLE"
 #define INTEGER "INTEGER"
-```
 
-Then we define the class Token.
-
-``` C++
 class Token {
 
     private:
@@ -76,7 +74,9 @@ class Token {
 };
 ```
 
-And also a class ASTNode.
+## AST Tree
+
+A AST tree or parse tree is an ordered, rooted tree that represents the syntactic structure of a program. A parse tree is made up of tokens (nodes and branches). Nodes can also be referred to as parent nodes and child nodes. A parent node is one which has at least one other node linked by a branch under it. A child node is one which has at least one node directly above it to which it is linked by a branch of the tree.
 
 ``` C++
 class ASTNode {
