@@ -263,3 +263,15 @@ Token Lexer::getNextToken() {
 
 }
 ```
+
+The result of the Lexer is an unrooted tree.
+
+```
+Token('CODE_BLOCK', 'CODE_BLOCK')
+Token('VARIABLE', 'a')
+Token('ASSIGN', '=')
+Token('INTEGER', '1')
+Token('VARIABLE', 'b')
+Token('ASSIGN', '=')
+Token('INTEGER', '2')
+```
