@@ -1,4 +1,16 @@
-The interpreter finally traverses the rooter, structured AST tree and evaluates each node. This process is the most important. It is where stored variables has to get managed and more.. This chapter will definitely continue.
+The parser has finally generated a rooted, structured AST tree.
+
+```
+Token('CODE_BLOCK', 'CODE_BLOCK')
+  Token('ASSIGN', '=')
+    Token('VARIABLE', 'a')
+    Token('INTEGER', '1')
+  Token('ASSIGN', '=')
+    Token('VARIABLE', 'b')
+    Token('INTEGER', '2')
+```
+
+The interpreter traverses the tree and visits each node. If its for example an <code>ASSIGN</code> token, there has to be 2 children - the variable name and the value which should be stored. This is the most important part. It is where variables get created and managed.
 
 ```C++
 class Interpreter {
