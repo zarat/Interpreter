@@ -1,11 +1,4 @@
-The parser takes the tokens from the lexer one after each other and match it against predefined rules. For example a statement could be
-
-<pre>
-// identifier equals string semicolon
-name = "Jango";
-</pre>
-
-We start always with a statement list because almost everything is a list of statements.
+The next step is parsing. This is where our syntax gets a grammar—the ability to compose larger expressions and statements out of smaller parts. A parser takes the flat list of tokens and builds a tree structure that mirrors the nested nature of the grammar.
 
 ``` C++
 class Parser {
@@ -234,4 +227,16 @@ ASTNode Parser::condition() {
     return node;
 
 }
+```
+
+The parser has now produced a rooted tree.
+
+```
+Token('CODE_BLOCK', 'CODE_BLOCK')
+  Token('ASSIGN', '=')
+    Token('VARIABLE', 'a')
+    Token('INTEGER', '1')
+  Token('ASSIGN', '=')
+    Token('VARIABLE', 'b')
+    Token('INTEGER', '2')
 ```
