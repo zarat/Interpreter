@@ -240,4 +240,4 @@ Token('CODE_BLOCK', 'CODE_BLOCK')
     Token('INTEGER', '2')
 ```
 
-[Interpreter](Interpreter.md)
+[Example](Example.md)
